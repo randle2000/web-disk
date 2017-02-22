@@ -62,19 +62,19 @@ Added to "C:\dev\workspace\Servers\Tomcat v8.0 Server at localhost-config\server
 --------------
 
 ## Building project
-Local build (need local MySQL running if you want to run tests):
-	mvn clean package -DskipTests
+Local build (need local MySQL running if you want to run tests):  
+`mvn clean package -DskipTests`
 
 Run locally:  
-This way it won't work cause web-runner.jar does not have tomcat-dbcp-8.0.33.jar and it won't construct DB resource declared in `META-INF/context.xml`
-	java -jar  target/dependency/webapp-runner.jar target/*.war --enable-naming --path /MyWebdisk 
+This way it won't work cause web-runner.jar does not have tomcat-dbcp-8.0.33.jar and it won't construct DB resource declared in `META-INF/context.xml`  
+`java -jar  target/dependency/webapp-runner.jar target/*.war --enable-naming --path /MyWebdisk`
 
-Run locally and remotely:
-	java -cp 'target/dependency/*' webapp.runner.launch.Main target/*.war --enable-naming --path /MyWebdisk
+Run locally and remotely:  
+`java -cp 'target/dependency/*' webapp.runner.launch.Main target/*.war --enable-naming --path /MyWebdisk`
 
 Deploy war:  
-This way it won't work as you can't change the Procfile and so you can't specify classpath to `target/dependency/tomcat-dbcp-8.0.33.jar`
-	mvn clean heroku:deploy-war -DskipTests
+This way it won't work as you can't change the Procfile and so you can't specify classpath to `target/dependency/tomcat-dbcp-8.0.33.jar`  
+`mvn clean heroku:deploy-war -DskipTests`
 
-Deploy jar:
-	mvn clean heroku:deploy -DskipTests
+Deploy jar:  
+`mvn clean heroku:deploy -DskipTests`
