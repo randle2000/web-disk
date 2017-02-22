@@ -33,6 +33,7 @@ and this file is also used by UserDBTest class when it creates the same tables i
 --------------
 
 ## HTTPS(TLS/SSL):
+```
 generated ".keystore" file
 	cd \Program Files\Java\jdk1.8.0_73\bin
 	keytool -genkey -alias tomcat -keyalg RSA
@@ -42,37 +43,38 @@ Added to "C:\dev\workspace\Servers\Tomcat v8.0 Server at localhost-config\server
            maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
            clientAuth="false" sslProtocol="TLS" 
            keystoreFile="C:/dev/workspace/Servers/.keystore" keystorePass="changeit"/>
+```
          
 ## File download/upload examples
 
-+ Download examples:
-	(!) Java Servlet Download File Example: http://www.codejava.net/java-ee/servlet/java-servlet-download-file-example
-	Java servlet to download file from database: http://www.codejava.net/java-ee/servlet/java-servlet-to-download-file-from-database
-	Servlet code to download text file from website: https://www.mkyong.com/servlet/servlet-code-to-download-text-file-from-website-java/
-	How to download file from website: https://www.mkyong.com/java/how-to-download-file-from-website-java-jsp/
-	How to return a binary file as an attachment: Joel Murach, Michael Urban - Murach's Java Servlets and JSP; page 564
-
-+ Upload examples:
-	(!) Upload files to database (Servlet + JSP + MySQL): http://www.codejava.net/coding/upload-files-to-database-servlet-jsp-mysql
-	Java File Upload Example with Servlet 3.0 API: http://www.codejava.net/java-ee/servlet/java-file-upload-example-with-servlet-30-api
-	Insert file data into MySQL database using JDBC: http://www.codejava.net/java-se/jdbc/insert-file-data-into-mysql-database-using-jdbc
++ Download examples:  
+	(!) Java Servlet Download File Example: http://www.codejava.net/java-ee/servlet/java-servlet-download-file-example  
+	Java servlet to download file from database: http://www.codejava.net/java-ee/servlet/java-servlet-to-download-file-from-database  
+	Servlet code to download text file from website: https://www.mkyong.com/servlet/servlet-code-to-download-text-file-from-website-java/  
+	How to download file from website: https://www.mkyong.com/java/how-to-download-file-from-website-java-jsp/  
+	How to return a binary file as an attachment: Joel Murach, Michael Urban - Murach's Java Servlets and JSP; page 564  
+  
++ Upload examples:  
+	(!) Upload files to database (Servlet + JSP + MySQL): http://www.codejava.net/coding/upload-files-to-database-servlet-jsp-mysql  
+	Java File Upload Example with Servlet 3.0 API: http://www.codejava.net/java-ee/servlet/java-file-upload-example-with-servlet-30-api  
+	Insert file data into MySQL database using JDBC: http://www.codejava.net/java-se/jdbc/insert-file-data-into-mysql-database-using-jdbc  
 
 --------------
 
 ## Building project
 Local build (need local MySQL running if you want to run tests):
-    mvn clean package -DskipTests
+	mvn clean package -DskipTests
 
-Run locally: 
+Run locally:  
 This way it won't work cause web-runner.jar does not have tomcat-dbcp-8.0.33.jar and it won't construct DB resource declared in `META-INF/context.xml`
-    java -jar  target/dependency/webapp-runner.jar target/*.war --enable-naming --path /MyWebdisk 
+	java -jar  target/dependency/webapp-runner.jar target/*.war --enable-naming --path /MyWebdisk 
 
 Run locally and remotely:
-    java -cp 'target/dependency/*' webapp.runner.launch.Main target/*.war --enable-naming --path /MyWebdisk
+	java -cp 'target/dependency/*' webapp.runner.launch.Main target/*.war --enable-naming --path /MyWebdisk
 
-Deploy war:
+Deploy war:  
 This way it won't work as you can't change the Procfile and so you can't specify classpath to `target/dependency/tomcat-dbcp-8.0.33.jar`
-    mvn clean heroku:deploy-war -DskipTests
+	mvn clean heroku:deploy-war -DskipTests
 
 Deploy jar:
-    mvn clean heroku:deploy -DskipTests
+	mvn clean heroku:deploy -DskipTests
