@@ -42,18 +42,6 @@ public class ConnectionPool {
     public Connection getConnection() {
         try {
             return dataSource.getConnection();
-//        	String DATABASE_URL = "jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_fda2a88d3f1d69f?reconnect=true";
-//        	String DATABASE_USERNAME = "b05ab820ed6e39";
-//        	String DATABASE_PASSWORD = "d6213621";
-//        	System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-//        	Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-//        	if (connection == null) {
-//            	System.out.println("conn null");
-//        	} else {
-//            	System.out.println("conn not null");
-//        		
-//        	}
-//        	return connection;
         } catch (SQLException sqle) {
             System.err.println(sqle);
             return null;
