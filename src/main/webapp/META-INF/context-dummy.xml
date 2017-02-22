@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/MyWebdisk">
+<!--
+	<Resource name="jdbc/webdiskDB" type="javax.sql.DataSource" auth="Container" 
+		driverClassName="com.mysql.jdbc.Driver" 
+		url="jdbc:mysql://localhost:3306/webdisk?autoReconnect=true" 
+		username="root" password="sesame" 
+		logAbandoned="true" 
+		removeAbandoned="true" removeAbandonedTimeout="60" 
+		maxActive="100" maxIdle="30" maxWait="10000" />
+            
+	<Resource name="jdbc/webdiskDB" type="javax.sql.DataSource" auth="Container" 
+		driverClassName="org.postgresql.Driver" 
+		url="jdbc:postgresql://ec2-54-235-247-224.compute-1.amazonaws.com:5432/d4dd1oggs9ttn0?sslmode=require" 
+		username="xxxxxxxxxx" password="xxxxxxxxxx" 
+		logAbandoned="true" 
+		removeAbandoned="true" removeAbandonedTimeout="60" 
+		maxActive="100" maxIdle="30" maxWait="10000" />
+ -->            
+            
+	<Resource name="jdbc/webdiskDB" type="javax.sql.DataSource" auth="Container" 
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_fda2a88d3f1d69f?reconnect=true" 
+		username="xxxxxxxxxx" password="xxxxxxxxx" />
+  
+	<Realm dataSourceName="jdbc/webdiskDB" localDataSource="true" 
+		 className="org.apache.catalina.realm.DataSourceRealm" 
+		 userTable="users" userRoleTable="userrole" 
+		 userNameCol="Email" roleNameCol="RoleName" userCredCol="Password" />
+</Context>

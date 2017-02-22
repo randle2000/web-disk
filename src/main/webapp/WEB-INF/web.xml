@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <description>
+  	</description>
+    <display-name>DiskController</display-name>
+    <servlet-name>DiskController</servlet-name>
+    <servlet-class>com.sln.webdisk.controllers.DiskController</servlet-class>
+    <multipart-config>
+      <max-file-size>16177215</max-file-size>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DiskController</servlet-name>
+    <url-pattern>/disk/controller/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>
+  	</description>
+    <display-name>SignupController</display-name>
+    <servlet-name>SignupController</servlet-name>
+    <servlet-class>com.sln.webdisk.controllers.SignupController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignupController</servlet-name>
+    <url-pattern>/signup/controller/*</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error_404.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/error_java.jsp</location>
+  </error-page>
+  <security-role>
+    <description>site normal users</description>
+    <role-name>user</role-name>
+  </security-role>
+  <security-role>
+    <description>site administrators</description>
+    <role-name>admin</role-name>
+  </security-role>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Admin</web-resource-name>
+      <url-pattern>/disk/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user</role-name>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/login_error.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  <session-config>
+    <tracking-mode>COOKIE</tracking-mode>
+  </session-config>
+  
+
+</web-app>
