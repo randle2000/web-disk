@@ -4,7 +4,7 @@
 <!-- start the middle column -->
 
 <section>
-    <h1>You have logged it!</h1>
+    <h1>You have logged in!</h1>
     <p>Thank you, ${user.realName}.</p>
     <p>Welcome to your Disk</p>
     <hr>
