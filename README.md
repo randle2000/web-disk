@@ -37,6 +37,10 @@ and this file is also used by UserDBTest class when it creates the same tables i
 
 --------------
 
+For max_allowed_packet see comments in com/sln/webdisk/util/WebdiskContextListener.java
+
+--------------
+
 ## HTTPS(TLS/SSL):
 
 	generated ".keystore" file

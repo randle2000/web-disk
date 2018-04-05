@@ -37,6 +37,7 @@ public class WebdiskContextListener implements ServletContextListener {
         sc.setAttribute("currentYear", currentYear);
         
         // Doesn't work - probably no MySQL connection yet at this point. Will set before each upload
+        // Probably need to set max_allowed_packet=16M in [mysqld] section of my.ini
         // Set global var of MySQL max_allowed_packet to 16MB so we could upload files this large
         //final long MAX_UPLOAD_PACKET = 16 * 1024 * 1024;  
         //UserFileDB.setMaxPacket(MAX_UPLOAD_PACKET);
